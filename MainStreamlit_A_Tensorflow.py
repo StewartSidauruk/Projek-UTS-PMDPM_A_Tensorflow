@@ -21,8 +21,7 @@ if selected == 'Klasifikasi':
     st.write('Untuk Inputan File dataset (csv) bisa menggunakan st.file_uploader')
     file = st.file_uploader("Masukkan File", type=["csv"] )
 
-    model_directory = r'D:\Download 4\ML_UTS\ML_UTS'
-    model_path = os.path. join(model_directory, r'BestModel_CLF_GradientBoostingTrees_Tensorflow.pkl')
+    model_path = r'BestModel_CLF_GradientBoostingTrees_Tensorflow.pkl'
 
     with open(model_path,'rb') as f:
             loaded_model = pickle.load(f)
@@ -123,8 +122,7 @@ if selected == 'Regresi':
     st.write('Untuk Inputan File dataset (csv) bisa menggunakan st.file_uploader')
     file = st.file_uploader("Masukkan File", type=["csv"] )
 
-    model_directory = r'D:\Download 4\ML_UTS\ML_UTS'
-    model_path = os.path. join(model_directory, r'BestModel_REG_RidgeRegression_Tensorflow.pkl')
+    model_path = r'BestModel_REG_RidgeRegression_Tensorflow.pkl'
 
     with open(model_path,'rb') as f:
             loaded_model = pickle.load(f)
