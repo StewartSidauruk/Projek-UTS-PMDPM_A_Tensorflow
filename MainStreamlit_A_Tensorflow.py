@@ -21,12 +21,13 @@ if selected == 'Klasifikasi':
     st.write('Untuk Inputan File dataset (csv) bisa menggunakan st.file_uploader')
     file = st.file_uploader("Masukkan File", type=["csv"] )
 
-    model_path = r'BestModel_CLF_GradientBoostingTrees_Tensorflow.pkl'
+    model_directory = r'D:\Download 4\ML_UTS\ML_UTS'
+    model_path = os.path. join(model_directory, r'BestModel_CLF_GradientBoostingTrees_Tensorflow.pkl')
 
     with open(model_path,'rb') as f:
             loaded_model = pickle.load(f)
 
-    rf_model = loaded_model
+    GBT_model = loaded_model
 
     #input squaremeters
     squaremeters = st.number_input("Inputkan berapa meter persegi dari properti", 1)
@@ -111,9 +112,9 @@ if selected == 'Klasifikasi':
                    attic, garage, hasguestroom]]
 
     if st.button("Prediksi"):
-        rf_model_prediction = rf_model.predict(input_data)
+        GBT_model_prediction = GBT_model.predict(input_data)
         outcome= {'Luxury':'Mewah', 'Middle':'Menengah', 'Basic':'Biasa'}
-        st.write(f"Properti tersebut diprediksi * {outcome[rf_model_prediction[0]]} * ")
+        st.write(f"Properti tersebut diprediksi * {outcome[GBT_model_prediction[0]]} * ")
 
 # Halaman Regresi
 if selected == 'Regresi':
@@ -122,7 +123,8 @@ if selected == 'Regresi':
     st.write('Untuk Inputan File dataset (csv) bisa menggunakan st.file_uploader')
     file = st.file_uploader("Masukkan File", type=["csv"] )
 
-    model_path = r'BestModel_REG_RidgeRegression_Tensorflow.pkl'
+    model_directory = r'D:\Download 4\ML_UTS\ML_UTS'
+    model_path = os.path. join(model_directory, r'BestModel_REG_RidgeRegression_Tensorflow.pkl')
 
     with open(model_path, 'rb') as f:
             loaded_model = pickle.load(f)
